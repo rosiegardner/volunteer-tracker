@@ -92,4 +92,14 @@ describe Project do
     end
   end
 
+  describe('.search') do
+    it("searches for an project by project name") do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project.save
+      project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
+      project2.save
+      expect(Project.search("Code")).to(eq([project]))  
+    end
+  end
+
 end
