@@ -14,7 +14,6 @@ get('/') do
   erb(:projects)
 end
 
-
 get('/projects') do
   @projects = Project.all 
   erb(:projects)
@@ -56,6 +55,16 @@ delete('/projects/:id') do
   redirect to('/projects')
 end
 
+get('/results') do
+  erb(:project_results)
+end
+
+post('/results') do
+  name = params[:search]
+  @projects = Project.search(name)
+  erb(:project_results)
+end
+
 get('/projects/:id/volunteers/:volunteer_id') do
   @volunteer = Volunteer.find(params[:volunteer_id].to_i())
   erb(:volunteer)
@@ -84,15 +93,12 @@ delete('/projects/:id/volunteers/:volunteer_id') do
   erb(:project)
 end
 
-# get('/results') do
-#   @album = Album.all
-#   erb(:search_results)
-# end
+get('/results/volunteers') do
+  erb(:volunteer_results)
+end
 
-# post('/results') do
-#   name = params[:album_name]
-#   album = Album.new({:name => name,:id => nil})
-#   album.save()
-#   @albums = Album.all
-#   erb(:search_results)
-# end
+post('/results/volunteers') do
+  name = params[:search]
+  @volunteers = Volunteer.search(name)
+  erb(:volunteer_results)
+end
