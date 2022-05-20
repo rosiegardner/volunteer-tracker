@@ -13,3 +13,23 @@
 <% end %>
 
 <a href="/projects/new">Add a new project!</a>
+
+<h3>Search Projects</h3>
+
+<form action="/results" method="post"> 
+  <div class="form-group">
+    <label for="search">Search</label>
+    <input id="search" name="search" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Go!</button>
+</form>
+
+<h3>Search Volunteers</h3>
+
+<form action="/results/volunteers" method="post"> 
+  <div class="form-group">
+    <label for="search">Search</label>
+    <input id="search" name="search" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Go!</button>
+</form>
