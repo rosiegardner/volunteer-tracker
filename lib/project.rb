@@ -50,4 +50,17 @@ class Project
     Volunteer.find_by_project(self.id)
   end
 
+  def self.search(str)
+    result = DB.exec("SELECT * FROM projects WHERE title ILIKE '%#{str}%';")
+    projects = []
+    result.each() do |project|
+      title = project.fetch("title")
+      id = project.fetch("id").to_i
+      projects.push(Project.new({:title => title, :id => id}))
+    end
+    if projects.any?
+      projects
+    end
+  end
+
 end
