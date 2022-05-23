@@ -1,6 +1,7 @@
 # Volunteer Tracker!
 
-#### This Web Application tracks projects and the volunteers working on them. Using one-to-many relationships, the volunteer will belong to only one project while a project can have multiple volunteers. The user can add a project, add volunteer to said project, update or delete projects or volunteers, and search for projects or volunteers by name using full CRUD functionality.
+#### This Web Application tracks projects and the volunteers working on them. Using one-to-many relationships, the volunteer will belong to only one project while a project can have multiple volunteers using full CRUD functionality.
+
 #### By Rosie Gardner
 
 ## Technologies Used
@@ -19,9 +20,13 @@
 * Navigate to the top-level of directory
 * Open VScode.
 * CD into root directory and bundle install project
-* Open Postgres and set up database volunteer_tracker and volunteer_tracker_test template with projects and volunteer tables.
+* Open Postgres and set up database:
+* `createdb volunteer_tracker`
+* `psql volunteer_tracker < database_backup.sql`
+* `createdb -T volunteer_tracker volunteer_tracker_test`
+* Run `ruby app.rb` in command line to start server
 
-## Behavior 
+## Behavior Driven Development / User Stories
 
 1) A user can view, add, update, and delete projects.
 2) A user can view, add, update, and delete volunteers.
@@ -32,7 +37,7 @@
 
 ## Known Bugs
 
-* NO KNOWN BUGS 
+* Do not use Apostrophe when creating projects
 
 ## License
 
